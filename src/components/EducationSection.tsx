@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Award, CheckCircle, Download } from 'lucide-react';
 
+//
+import bookLogo from './assets/bookLogo.svg'
+import symbolsLogo from './assets/kzSymbols.svg'
+import freedomLogo from './assets/freedomLogo.svg'
+
+import educatinoLogo from './assets/edu-logo.svg'
+import akordaLogo from './assets/akorda.svg'
+
 const EducationSection = () => {
   const [activeTab, setActiveTab] = useState('articles');
   const [quizStarted, setQuizStarted] = useState(false);
@@ -33,31 +41,36 @@ const EducationSection = () => {
       number: 1,
       title: 'Основы конституционного строя',
       content: 'Республика Казахстан утверждает себя демократическим, светским, правовым и социальным государством.',
-      explanation: 'Эта статья определяет основные принципы государственного устройства Казахстана.'
+      explanation: 'Эта статья определяет основные принципы государственного устройства Казахстана.',
+      logo: bookLogo
     },
     {
-      number: 10,
+      number: 9,
       title: 'Государственная символика',
       content: 'Республика Казахстан имеет государственные символы - Флаг, Герб и Гимн.',
-      explanation: 'Государственные символы отражают суверенитет и независимость нашего государства.'
+      explanation: 'Государственные символы отражают суверенитет и независимость нашего государства.',
+      logo: symbolsLogo
     },
     {
       number: 12,
       title: 'Права и свободы человека',
       content: 'Права и свободы человека принадлежат каждому от рождения.',
-      explanation: 'Конституция гарантирует равенство всех граждан перед законом.'
+      explanation: 'Конституция гарантирует равенство всех граждан перед законом.',
+      logo: freedomLogo
     },
     {
-      number: 33,
+      number: 30,
       title: 'Право на образование',
       content: 'Граждане имеют право на образование. Среднее образование обязательно.',
-      explanation: 'Государство гарантирует доступность образования для всех граждан.'
+      explanation: 'Государство гарантирует доступность образования для всех граждан.',
+      logo: educatinoLogo
     },
     {
       number: 40,
       title: 'Президент Республики',
       content: 'Президент является главой государства, его высшим должностным лицом.',
-      explanation: 'Президент определяет основные направления внутренней и внешней политики.'
+      explanation: 'Президент определяет основные направления внутренней и внешней политики.',
+      logo: akordaLogo
     }
   ];
 
@@ -69,7 +82,7 @@ const EducationSection = () => {
     },
     {
       question: 'Сколько статей содержит Конституция РК?',
-      options: ['95', '98', '100', '102'],
+      options: ['95', '99', '100', '102'],
       correct: 1
     },
     {
@@ -162,7 +175,7 @@ const EducationSection = () => {
         {activeTab === 'articles' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-              <div key={article.number} className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow">
+              <div key={article.number} className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow relative min-h-[240px] overflow-hidden">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white font-bold mr-3">
                     {article.number}
@@ -172,9 +185,13 @@ const EducationSection = () => {
                 <p className="text-foreground mb-4 leading-relaxed">
                   {article.content}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground z-10">
                   {article.explanation}
                 </p>
+
+                <div className='absolute right-[-100px] bottom-[-120px] z-0 opacity-20'>
+                  <img src={article.logo} width={300} height={300}></img>
+                </div>
               </div>
             ))}
           </div>
@@ -212,10 +229,10 @@ const EducationSection = () => {
                   Вы правильно ответили на {calculateScore()} из {quizQuestions.length} вопросов
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="bg-emerald-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-600 transition-colors flex items-center">
+                  {/* <button className="bg-emerald-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-600 transition-colors flex items-center">
                     <Download className="w-4 h-4 mr-2" />
                     Скачать сертификат
-                  </button>
+                  </button> */}
                   <button
                     onClick={resetQuiz}
                     className="border border-border text-foreground px-6 py-3 rounded-xl font-semibold hover:bg-muted transition-colors"

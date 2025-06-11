@@ -86,7 +86,7 @@ const TimelineSection = () => {
                 onClick={() => setSelectedEvent(index)}
                 className={`flex-shrink-0 mx-2 p-4 rounded-xl transition-all duration-300 ${
                   selectedEvent === index
-                    ? 'bg-primary text-white shadow-lg scale-105'
+                    ? 'bg-[#00AFCA] text-white shadow-lg scale-105'
                     : 'bg-white text-foreground hover:bg-primary/10 border border-border'
                 }`}
               >

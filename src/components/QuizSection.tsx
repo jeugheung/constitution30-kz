@@ -60,15 +60,15 @@ const QuizSection = () => {
       id: 6,
       question: "На какой срок избирается Президент РК?",
       options: ["4 года", "5 лет", "6 лет", "7 лет"],
-      correctAnswer: 2,
+      correctAnswer: 3,
       explanation: "Согласно статье 41 Конституции, Президент избирается на семь лет."
     },
     {
       id: 7,
       question: "Сколько депутатов в Мажилисе Парламента РК?",
       options: ["77", "98", "107", "125"],
-      correctAnswer: 2,
-      explanation: "Согласно статье 50 Конституции, Мажилис состоит из ста семи депутатов."
+      correctAnswer: 1,
+      explanation: "Согласно статье 50 Конституции, Мажилис состоит из девяноста восьми."
     },
     {
       id: 8,
@@ -177,8 +177,8 @@ const QuizSection = () => {
               <Clock className="w-4 h-4 mr-2" />
               Викторина
             </div>
-            <h2 className="text-4xl font-bold mb-6">
-              <span className="kz-text-gradient">Проверьте</span> свои знания
+            <h2 className="text-4xl font-bold mb-6 text-[#333333]">
+              <span className="text-[#00AFCA]">Проверьте</span> свои знания
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Пройдите тест на знание Конституции Республики Казахстан и узнайте свой уровень
@@ -220,7 +220,7 @@ const QuizSection = () => {
 
                 <Button 
                   onClick={startQuiz}
-                  className="w-full kz-gradient text-white"
+                  className="w-full bg-[#00AFCA] text-white"
                   size="lg"
                 >
                   Начать викторину

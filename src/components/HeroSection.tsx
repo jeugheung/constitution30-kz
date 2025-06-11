@@ -59,14 +59,14 @@ const HeroSection = () => {
           {/* Main Hero Content */}
           <div className="animate-fade-in">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
-              <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
+              <span className="w-2 h-2 bg-[#00AFCA] rounded-full mr-2"></span>
               30-летие Конституции Республики Казахстан
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="kz-text-gradient">Конституция —</span>
+              <span className="text-[#00AFCA]">Конституция —</span>
               <br />
-              <span className="text-foreground">основа нашего будущего</span>
+              <span className="text-[#333333]">основа нашего будущего</span>
             </h1>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -77,14 +77,14 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
               <button 
                 onClick={handleStartStudying}
-                className="kz-gradient text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
+                className="bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
               >
                 Начать изучение
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
                 onClick={handleTakeTest}
-                className="border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary hover:text-white transition-all duration-300"
+                className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
               >
                 Пройти тест
               </button>
