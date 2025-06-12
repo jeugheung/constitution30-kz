@@ -155,7 +155,7 @@ const TimelineSection = () => {
             </div>
 
             {/* Image */}
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center p-8 lg:p-12">
+            <div className="bg-[#bdbdbd33] from-primary/10 to-secondary/10 flex items-center justify-center p-8 lg:p-12">
               <div className="w-full max-w-md">
                 <div className="aspect-square bg-white/50 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/20">
                   <div className="text-center">
