@@ -49,11 +49,21 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  // Временно включаем smooth
+                  document.documentElement.style.scrollBehavior = 'smooth';
+              
+                  // Через короткое время отключаем (чтобы не ломало другие места)
+                  setTimeout(() => {
+                    document.documentElement.style.scrollBehavior = 'auto';
+                  }, 1000); // 1 сек достаточно
+                }}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.name}
               </a>
-            ))}
+              
+              ))}
           </nav>
 
           {/* Language Switch */}

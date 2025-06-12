@@ -8,6 +8,7 @@ import freedomLogo from './assets/freedomLogo.svg'
 
 import educatinoLogo from './assets/edu-logo.svg'
 import akordaLogo from './assets/akorda.svg'
+import { Link } from 'react-router-dom';
 
 const EducationSection = () => {
   const [activeTab, setActiveTab] = useState('articles');
@@ -175,24 +176,21 @@ const EducationSection = () => {
         {activeTab === 'articles' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-              <div key={article.number} className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow relative min-h-[240px] overflow-hidden">
+              <Link key={article.number} to={`/article/${article.number}`}>
+              <div className="bg-card rounded-xl p-6 border border-border hover:shadow-lg transition-shadow relative min-h-[240px] overflow-hidden">
                 <div className="flex items-center mb-4">
                   <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white font-bold mr-3">
                     {article.number}
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">{article.title}</h3>
                 </div>
-                <p className="text-foreground mb-4 leading-relaxed">
-                  {article.content}
-                </p>
-                <p className="text-sm text-muted-foreground z-10">
-                  {article.explanation}
-                </p>
-
-                <div className='absolute right-[-100px] bottom-[-120px] z-0 opacity-20'>
-                  <img src={article.logo} width={300} height={300}></img>
+                <p className="text-foreground mb-4 leading-relaxed">{article.content}</p>
+                <p className="text-sm text-muted-foreground z-10">{article.explanation}</p>
+                <div className="absolute right-[-100px] bottom-[-120px] z-0 opacity-20">
+                  <img src={article.logo} width={300} height={300} />
                 </div>
               </div>
+            </Link>
             ))}
           </div>
         )}
