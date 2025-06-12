@@ -124,7 +124,7 @@ const HeroSection = () => {
               <div className="text-muted-foreground font-medium">крупных реформ</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-emerald-500 mb-2">98</div>
+              <div className="text-3xl md:text-4xl font-bold text-emerald-500 mb-2">99</div>
               <div className="text-muted-foreground font-medium">статей</div>
             </div>
             <div className="text-center">
