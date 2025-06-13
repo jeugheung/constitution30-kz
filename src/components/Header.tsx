@@ -35,7 +35,7 @@ const Header = () => {
                 <span className="text-primary font-bold text-sm">30</span>
               </div>
             </div> */}
-            <img src={suLogo} width={60} height={50}></img>
+            {/* <img src={suLogo} width={60} height={50}></img> */}
             <div>
               <h1 className="text-lg font-bold text-foreground">Конституция РК</h1>
               <p className="text-xs text-muted-foreground">30 лет</p>
