@@ -2,8 +2,11 @@ import React from 'react';
 import { ArrowRight, BookOpen, Clock, Calendar } from 'lucide-react';
 import { Fade, Slide, Zoom } from 'react-awesome-reveal';
 import CountUp from 'react-countup';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  
   const features = [
     {
       icon: Calendar,
@@ -45,6 +48,10 @@ const HeroSection = () => {
     }
   };
 
+  const handleEbook = () => {
+    navigate('/ebook');
+  }
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center hero-pattern pt-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -83,6 +90,12 @@ const HeroSection = () => {
                 className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
               >
                 Пройти тест
+              </button>
+              <button 
+                onClick={handleEbook}
+                className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
+              >
+                Книга
               </button>
             </div>
           </Slide>
