@@ -4,6 +4,10 @@ import flag from '../../components/assets/flag.mp4'
 import eagle from '../../components/assets/kzSymbols.svg'
 import { useEffect } from 'react';
 import backIcon from '../../components/assets/back.svg'
+import Header from '@/components/Header';
+import ornamentBg2 from '../../components/assets/ornamentAnimated.svg'
+import Marquee from "react-fast-marquee";
+import { Fade, Slide, Zoom } from 'react-awesome-reveal';
 
 const DetailedFirst = () => {
   useEffect(() => {
@@ -11,14 +15,33 @@ const DetailedFirst = () => {
   }, []);
   
   return (
-    <div className='relative hero-pattern pl-2 pr-2 pb-8' >
+    <div className='relative hero-pattern  pb-8' >
+
+      {/* <Header /> */}
+      <div className="relative w-full h-1">
+        {/* Полупрозрачный фон */}
+        <div className="absolute inset-0 pointer-events-none z-0" />
+
+        {/* Содержимое поверх — полностью непрозрачное */}
+        <div className="relative z-10 bg-[#1681B8]">
+          <Marquee gradient={true} speed={50} gradientColor={'#1681B8'}>
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+            <img src={ornamentBg2} className="h-10 w-auto" alt="ornament" />
+          </Marquee>
+        </div>
+      </div>
+
 
       <div
         className="w-full h-[350px] bg-cover "
       />
 
       <video
-        className="absolute top-0 left-0 w-full h-[200px] object-fill sm:h-[300px]"
+        className="absolute top-10 left-0 w-full h-[200px] object-fill sm:h-[300px]"
         autoPlay
         muted
         loop
@@ -27,31 +50,44 @@ const DetailedFirst = () => {
           <source src={flag} type="video/mp4" />
           Ваш браузер не поддерживает видео.
       </video>
-      
-      <div className="relative z-10 max-w-[1200px] mx-auto -mt-[250px] bg-card p-6 rounded-xl border border-border shadow-lg overflow-hidden">
-        <button
-          onClick={() => window.history.back()}
-          className="relative z-10 mb-4 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors cursor-pointer flex gap-2"
-        >
-          <img src={backIcon} width={8}></img>
-          Назад
-        </button>
 
-        <h1 className="text-3xl font-bold mb-6 text-foreground">
+      <div className="absolute top-2 left-0 w-full h-[250px] sm:h-[300px] z-10 flex items-center justify-center">
+        <Fade cascade damping={0.15}  triggerOnce>
+          <div className="px-6 py-4 rounded-xl text-white text-2xl sm:text-4xl font-bold shadow-lg backdrop-blur-sm">
+            1. Основы конституционного строя
+          </div>
+        </Fade >
+      </div>
+      
+      <div className="relative z-20 max-w-[1200px] mx-auto -mt-[140px] bg-card p-6 rounded-xl border border-border shadow-lg overflow-hidden">
+        <Slide direction="left"  duration={400}  triggerOnce>
+          <button
+            onClick={() => window.history.back()}
+            className="relative z-10 mb-4 px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/80 transition-colors cursor-pointer flex gap-2"
+          >
+            <img src={backIcon} width={8} alt="назад" />
+            Назад
+          </button>
+        </Slide>
+
+        {/* <h1 className="text-3xl font-bold mb-6 text-foreground">
           1. Основы конституционного строя
-        </h1>
-        <p className="mb-4 text-foreground leading-relaxed text-lg">
-          Республика Казахстан утверждает себя демократическим, светским, правовым и социальным государством.
-          Эта статья определяет основные принципы государственного устройства Казахстана.
-        </p>
-        <p className="mb-4 text-foreground leading-relaxed">
-          Основы конституционного строя Республики Казахстан — это фундаментальные принципы, на которых базируется государственная система страны. Эти принципы закреплены в Конституции Республики Казахстан — основном законе, принятым на республиканском референдуме 30 августа 1995 года. Особенно важное значение имеет статья 1 Конституции, в которой говорится:
-        </p>
-        <blockquote className="italic border-l-4 border-primary pl-4 mb-4">
-          "Республика Казахстан утверждает себя демократическим, светским, правовым и социальным государством, высшими ценностями которого являются человек, его жизнь, права и свободы."
-        </blockquote>
+        </h1> */}
+   
+          <p className="mb-4 text-foreground leading-relaxed text-lg">
+            Республика Казахстан утверждает себя демократическим, светским, правовым и социальным государством...
+          </p>
+          <p className="mb-4 text-foreground leading-relaxed">
+            Основы конституционного строя Республики Казахстан — это фундаментальные принципы, на которых базируется государственная система страны...
+          </p>
+          <blockquote className="italic border-l-4 border-primary pl-4 mb-4">
+            "Республика Казахстан утверждает себя демократическим, светским, правовым и социальным государством, высшими ценностями которого являются человек, его жизнь, права и свободы."
+          </blockquote>
+  
 
         <h2 className="text-2xl font-semibold mt-6 mb-2 text-foreground">1. Демократическое государство</h2>
+        
+        
         <p className="mb-2">Что означает:</p>
         <p className="mb-4">
           Казахстан признает власть народа как источник государственной власти. Все институты государственной власти формируются на основе волеизъявления граждан — через выборы, референдумы, участие в управлении государственными делами.
@@ -129,11 +165,11 @@ const DetailedFirst = () => {
           Конституционный строй Республики Казахстан базируется на признании человека, его жизни, прав и свобод как высших ценностей государства. Каждый из принципов — демократичность, светскость, правовость и социальность — тесно взаимосвязан и направлен на построение устойчивого, справедливого и открытого общества.
         </p>
 
-        <img src={eagle} className='absolute inset-0 w-full h-full object-cover opacity-[0.07] z-0'></img>
+        <img src={eagle} className='absolute inset-0 w-full h-full object-cover opacity-[0.07] z-0 pointer-events-none'></img>
       </div>
 
       {/* Подложка */}
-      <div className="absolute inset-0 bg-black opacity-15 z-0 pointer-events-none h-[200px] sm:h-[300px]" />
+      <div className="absolute inset-0 top-10 bg-black opacity-15 z-0 pointer-events-none h-[200px] sm:h-[300px]" />
 
      
     </div>

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Clock, CheckCircle, X, RotateCcw, Award, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 interface Question {
   id: number;
@@ -172,62 +173,66 @@ const QuizSection = () => {
     return (
       <section id="quiz" className="py-20 ornament-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-violet-500/10 text-violet-600 font-medium text-sm mb-6">
-              <Clock className="w-4 h-4 mr-2" />
-              Викторина
+          <Fade cascade damping={0.1} triggerOnce>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-violet-500/10 text-violet-600 font-medium text-sm mb-6">
+                <Clock className="w-4 h-4 mr-2" />
+                Викторина
+              </div>
+              <h2 className="text-4xl font-bold mb-6 text-[#333333]">
+                <span className="text-[#00AFCA]">Проверьте</span> свои знания
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Пройдите тест на знание Конституции Республики Казахстан и узнайте свой уровень
+              </p>
             </div>
-            <h2 className="text-4xl font-bold mb-6 text-[#333333]">
-              <span className="text-[#00AFCA]">Проверьте</span> свои знания
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Пройдите тест на знание Конституции Республики Казахстан и узнайте свой уровень
-            </p>
-          </div>
+          </Fade>
 
-          <div className="max-w-2xl mx-auto">
-            <Card>
-              <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Timer className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl">Викторина по Конституции РК</CardTitle>
-                <CardDescription>
-                  Тест состоит из 10 вопросов. На прохождение дается 10 минут.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="p-4 rounded-lg bg-muted">
-                    <div className="text-2xl font-bold text-primary">10</div>
-                    <div className="text-sm text-muted-foreground">вопросов</div>
+          <Slide direction="up" triggerOnce>
+            <div className="max-w-2xl mx-auto">
+              <Card>
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-violet-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Timer className="w-8 h-8 text-white" />
                   </div>
-                  <div className="p-4 rounded-lg bg-muted">
-                    <div className="text-2xl font-bold text-primary">10</div>
-                    <div className="text-sm text-muted-foreground">минут</div>
+                  <CardTitle className="text-2xl">Викторина по Конституции РК</CardTitle>
+                  <CardDescription>
+                    Тест состоит из 10 вопросов. На прохождение дается 10 минут.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div className="p-4 rounded-lg bg-muted">
+                      <div className="text-2xl font-bold text-primary">10</div>
+                      <div className="text-sm text-muted-foreground">вопросов</div>
+                    </div>
+                    <div className="p-4 rounded-lg bg-muted">
+                      <div className="text-2xl font-bold text-primary">10</div>
+                      <div className="text-sm text-muted-foreground">минут</div>
+                    </div>
                   </div>
-                </div>
 
-                <div className="space-y-3">
-                  <h4 className="font-semibold">Правила викторины:</h4>
-                  <ul className="text-sm text-muted-foreground space-y-2">
-                    <li>• На каждый вопрос есть только один правильный ответ</li>
-                    <li>• Вы можете вернуться к предыдущим вопросам</li>
-                    <li>• Время ограничено - 10 минут на все вопросы</li>
-                    <li>• После завершения вы увидите результаты и правильные ответы</li>
-                  </ul>
-                </div>
+                  <div className="space-y-3">
+                    <h4 className="font-semibold">Правила викторины:</h4>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• На каждый вопрос есть только один правильный ответ</li>
+                      <li>• Вы можете вернуться к предыдущим вопросам</li>
+                      <li>• Время ограничено - 10 минут на все вопросы</li>
+                      <li>• После завершения вы увидите результаты и правильные ответы</li>
+                    </ul>
+                  </div>
 
-                <Button 
-                  onClick={startQuiz}
-                  className="w-full bg-[#00AFCA] text-white"
-                  size="lg"
-                >
-                  Начать викторину
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+                  <Button 
+                    onClick={startQuiz}
+                    className="w-full bg-[#00AFCA] text-white"
+                    size="lg"
+                  >
+                    Начать викторину
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </Slide>
         </div>
       </section>
     );

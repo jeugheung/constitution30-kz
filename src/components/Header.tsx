@@ -1,46 +1,50 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import ornamentBg from './assets/ornament3.svg'
-import suLogo from './assets/suLogo.svg'
+import ornamentBg from './assets/ornament3.svg';
+import suLogo from './assets/suLogo.svg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const menuItems = [
     { name: 'Главная', href: '#home', nameKz: 'Басты бет' },
     { name: 'Хроника', href: '#timeline', nameKz: 'Хроника' },
     { name: 'Образование', href: '#education', nameKz: 'Білім' },
-    // { name: 'Конкурс', href: '#contest', nameKz: 'Конкурс' },
     { name: 'Викторина', href: '#quiz', nameKz: 'Викторина' }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrollPercent);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border"
-            style={{
-              backgroundImage: `url(${ornamentBg})`,
-              backgroundRepeat: 'repeat',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-            
-            }}
+    <header
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border"
+      style={{
+        backgroundImage: `url(${ornamentBg})`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+      }}
     >
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            {/* <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
-                <span className="text-primary font-bold text-sm">30</span>
-              </div>
-            </div> */}
-            {/* <img src={suLogo} width={60} height={50}></img> */}
             <div>
               <h1 className="text-lg font-bold text-foreground">Конституция РК</h1>
               <p className="text-xs text-muted-foreground">30 лет</p>
             </div>
-       
           </div>
 
           {/* Desktop Navigation */}
@@ -50,20 +54,16 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => {
-                  // Временно включаем smooth
                   document.documentElement.style.scrollBehavior = 'smooth';
-              
-                  // Через короткое время отключаем (чтобы не ломало другие места)
                   setTimeout(() => {
                     document.documentElement.style.scrollBehavior = 'auto';
-                  }, 1000); // 1 сек достаточно
+                  }, 1000);
                 }}
                 className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.name}
               </a>
-              
-              ))}
+            ))}
           </nav>
 
           {/* Language Switch */}
@@ -110,7 +110,14 @@ const Header = () => {
             </nav>
           </div>
         )}
+
+        
       </div>
+
+      <div
+        className="h-1 bg-[#00AFCA] transition-all duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
     </header>
   );
 };
