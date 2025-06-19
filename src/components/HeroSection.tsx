@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen, Clock, Calendar } from 'lucide-react';
 import { Fade, Slide, Zoom } from 'react-awesome-reveal';
 import CountUp from 'react-countup';
 import { useNavigate } from 'react-router-dom';
+import bookIcon from '../components/assets/mb-1.svg'
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -53,10 +54,12 @@ const HeroSection = () => {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-pattern pt-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center hero-pattern pt-16"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-4xl mx-auto">
-
           {/* 🔹 Заголовок + описание */}
           <Fade cascade damping={0.1} triggerOnce>
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
@@ -65,40 +68,44 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-[#00AFCA]">Конституция —</span><br />
+              <span className="text-[#00AFCA]">Конституция —</span>
+              <br />
               <span className="text-[#333333]">основа нашего будущего</span>
             </h1>
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Изучайте историю конституционных реформ, проверяйте знания и участвуйте 
-              в создании будущего Казахстана
+              Изучайте историю конституционных реформ, проверяйте знания и
+              участвуйте в создании будущего Казахстана
             </p>
           </Fade>
 
           {/* 🔹 Кнопки */}
           <Slide direction="up" triggerOnce>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <button 
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+              <button
                 onClick={handleStartStudying}
                 className="bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
               >
                 Начать изучение
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button 
+              <button
                 onClick={handleTakeTest}
                 className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
               >
                 Пройти тест
               </button>
-              <button 
-                onClick={handleEbook}
-                className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
-              >
-                Конституция РК
-              </button>
             </div>
           </Slide>
+
+          <button
+            onClick={handleEbook}
+            className="border-b-[5px] border-[#00AFCA] p-2 rounded-sm font-semibold text-lg transition-all duration-300 mb-6
+                      hover:scale-105  hover:text-white"
+          >
+            <img src={bookIcon} width={80} height={80} alt="Открыть книгу" />
+          </button>
+
 
           {/* 🔹 Фичи */}
           <Zoom cascade damping={0.2} triggerOnce>
@@ -109,7 +116,9 @@ const HeroSection = () => {
                   href={feature.href}
                   className="group p-6 rounded-2xl bg-card border border-border hover:shadow-xl hover:scale-105 transition-all duration-300 text-left"
                 >
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <feature.icon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
@@ -130,13 +139,17 @@ const HeroSection = () => {
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   <CountUp end={30} duration={3} />
                 </div>
-                <div className="text-muted-foreground font-medium">лет Конституции</div>
+                <div className="text-muted-foreground font-medium">
+                  лет Конституции
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                   <CountUp end={5} duration={3} />
                 </div>
-                <div className="text-muted-foreground font-medium">крупных реформ</div>
+                <div className="text-muted-foreground font-medium">
+                  крупных реформ
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-emerald-500 mb-2">
@@ -152,7 +165,6 @@ const HeroSection = () => {
               </div>
             </div>
           </Slide>
-
         </div>
       </div>
     </section>

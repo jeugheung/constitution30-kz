@@ -37,8 +37,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: 20px;
   text-align: center;
   min-height: 650px; /* или точную высоту FlipBook */
@@ -151,9 +151,11 @@
 }
 
 .pokemonDescription {
-  font-size: 14px;
+  font-size: clamp(12px, 1.5vw, 14px);
+  white-space: pre-line;
   color: #34495e;
   margin-top: 8px;
+  text-align: start;
   line-height: 1.4;
 }
 
