@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen, Clock, Calendar } from 'lucide-react';
 import { Fade, Slide, Zoom } from 'react-awesome-reveal';
 import CountUp from 'react-countup';
 import { useNavigate } from 'react-router-dom';
-import bookIcon from '../components/assets/mb-1.svg'
+import bookIcon from '../components/assets/mb-2.svg'
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
           {/* 🔹 Кнопки */}
           <Slide direction="up" triggerOnce>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <button
                 onClick={handleStartStudying}
                 className="bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
@@ -95,16 +95,23 @@ const HeroSection = () => {
               >
                 Пройти тест
               </button>
+              <button
+                onClick={handleEbook}
+                className="flex gap-3 border-2 bg-[#00AFCA] text-[#fff] px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
+              >
+                <span>Конституция РК </span>
+                <img src={bookIcon}></img>
+              </button>
             </div>
           </Slide>
 
-          <button
+          {/* <button
             onClick={handleEbook}
             className="border-b-[5px] border-[#00AFCA] p-2 rounded-sm font-semibold text-lg transition-all duration-300 mb-6
                       hover:scale-105  hover:text-white"
           >
             <img src={bookIcon} width={80} height={80} alt="Открыть книгу" />
-          </button>
+          </button> */}
 
 
           {/* 🔹 Фичи */}
