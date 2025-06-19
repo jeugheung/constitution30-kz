@@ -13,6 +13,8 @@ import eduHover from '../components/assets/eduHover.svg';
 import akordaLogo from '../components/assets/akorda.svg';
 import akordaHover from '../components/assets/akordaHover.svg';
 
+import gerb from '../components/assets/gerb.png'
+
 const EbookPage = () => {
   const bookRef = useRef();
   const [currentPage, setCurrentPage] = useState(0);
@@ -92,9 +94,22 @@ const EbookPage = () => {
             // className={styles.book}
           >
             <div className={`${styles.page} ${styles.cover}`}>
-              <div className={styles.pageContent}>
-                <img src={logoHover} alt="Конституция РК" className={styles.pokemonLogo} />
-                <h2 style={{ color: 'white' }} className="text-2xl">Конституция Республики Казахстан</h2>
+              <div className={styles.firstPageContent}>
+                <img src={gerb} alt="Конституция РК" className={styles.pokemonLogo} />
+                <h2 className="text-2xl md:text-4xl font-bold drop-shadow-sm">
+                  Конституция
+                </h2>
+                <h2 className="text-2xl md:text-3xl font-bold drop-shadow-sm">
+                  Республики Казахстан
+                </h2>
+
+                <div className="w-16 h-1 bg-yellow-500 rounded-full" />
+
+                <p className="text-sm md:text-base text-white max-w-xs md:max-w-sm opacity-80">
+                  Основной закон страны, отражающий волю народа и принципы государственного устройства.
+                </p>
+
+                <span className="text-xs text-white/60 italic">Принята 30 августа 1995 года</span>
               </div>
             </div>
 

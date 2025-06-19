@@ -95,7 +95,7 @@ const HeroSection = () => {
                 onClick={handleEbook}
                 className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
               >
-                Книга
+                Конституция РК
               </button>
             </div>
           </Slide>
