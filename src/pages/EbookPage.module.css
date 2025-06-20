@@ -41,7 +41,13 @@
   align-items: flex-start;
   padding: 20px;
   text-align: center;
-  min-height: 650px; /* или точную высоту FlipBook */
+
+}
+
+@media (max-width: 550px) {
+  .pageContent {
+    padding: 10px;
+  }
 }
 
 .firstPageContent {
@@ -87,10 +93,10 @@
 }
 
 .pokemonName {
-  font-size: clamp(1rem, 3vw, 1.8rem);
-  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 18px);
+  font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 5px;
+  white-space: pre-line;
 }
 
 .pokemonNumber {
@@ -224,4 +230,47 @@
 
 .backButton:hover {
   background-color: rgba(230, 230, 230, 0.95);
+}
+
+.selectWrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.articleNav {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.articleNav select {
+  appearance: none;         /* убираем системный стиль */
+  -webkit-appearance: none; /* для Safari */
+  -moz-appearance: none;    /* для Firefox */
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: white;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #ccc;
+  user-select: none;
+  position: relative;
+}
+
+.selectIcon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* иконка не перехватывает клики */
 }

@@ -6,12 +6,13 @@ const MobileBook = ({ expandedPages, bookRef, handleFlip }) => (
   <HTMLFlipBook
     ref={bookRef}
     width={550}
-    height={650}
+    height={800}
     size="stretch"
-    minWidth={300}
-    maxWidth={1100}
+    minWidth={350}
+    maxWidth={800}
     minHeight={400}
-    maxHeight={1000}
+    maxHeight={900}
+
     drawShadow={true}
     maxShadowOpacity={0.5}
     showCover={true}
