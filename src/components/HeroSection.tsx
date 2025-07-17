@@ -53,6 +53,10 @@ const HeroSection = () => {
     navigate('/ebook');
   }
 
+  const handle3D = () => {
+    navigate('/framer');
+  }
+
   return (
     <section
       id="home"
@@ -79,31 +83,48 @@ const HeroSection = () => {
             </p>
           </Fade>
 
-          {/* 🔹 Кнопки */}
+         {/* 🔹 Кнопки */}
           <Slide direction="up" triggerOnce>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <button
-                onClick={handleStartStudying}
-                className="bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
-              >
-                Начать изучение
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={handleTakeTest}
-                className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
-              >
-                Пройти тест
-              </button>
-              <button
-                onClick={handleEbook}
-                className="flex gap-3 border-2 bg-[#00AFCA] text-[#fff] px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
-              >
-                <span>Конституция РК </span>
-                <img src={bookIcon}></img>
-              </button>
+            <div className="flex flex-col items-center mb-12 gap-8">
+              {/* Первая строка с тремя кнопками */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  onClick={handleStartStudying}
+                  className="bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center group"
+                >
+                  Начать изучение
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={handleTakeTest}
+                  className="border-2 border-[#00AFCA] text-[#00AFCA] px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#00AFCA] hover:text-white transition-all duration-300"
+                >
+                  Пройти тест
+                </button>
+                <button
+                  onClick={handleEbook}
+                  className="flex gap-3 border-2 bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 items-center"
+                >
+                  <span>Конституция РК</span>
+                  <img src={bookIcon} alt="ebook" className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Отдельная строка только для 3Д Тур */}
+              <div>
+                <button
+                  onClick={handle3D}
+                  className="
+                    flex gap-3 border-2 bg-[#00AFCA] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300 items-center
+                    "
+                >
+                  3D Тур по Конституции
+                  <ArrowRight className="ml-3 w-6 h-6" />
+                </button>
+              </div>
             </div>
           </Slide>
+
 
           {/* <button
             onClick={handleEbook}

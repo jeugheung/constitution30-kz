@@ -12,6 +12,7 @@ import DetailedTwelve from "./pages/detailed/Detailed-12";
 import DetailedThirty from "./pages/detailed/Detailed-30";
 import DetailedArticle40 from "./pages/detailed/Detailed-40";
 import EbookPage from "./pages/EBookPage";
+import Framer from "./pages/Framer/Framer";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/article/30" element={<DetailedThirty/>}/>
           <Route path="/article/40" element={<DetailedArticle40/>}/>
           <Route path="/ebook" element={<EbookPage />} />
+          <Route path="/framer" element={<Framer />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
